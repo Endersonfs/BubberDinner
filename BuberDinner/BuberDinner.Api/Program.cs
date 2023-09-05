@@ -1,9 +1,10 @@
-using BuberDinner.Application.Services.Authentication;
+using BuberDinner.Application;
+using BuberDinner.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 {
-   // Add services to the container. 
-    builder.Services.AddSingleton<IAuthenticationService, AuthenticationService>();
+    // Add services to the container. 
+    builder.Services.AddApplication().AddInfrastructure();
     builder.Services.AddControllers();
 }
 
