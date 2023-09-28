@@ -1,0 +1,5 @@
+--build Application
+dotnet build
+
+--Run Application
+dotnet run --project .\BuberDinner.Api\
