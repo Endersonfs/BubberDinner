@@ -1,19 +1,21 @@
-﻿using BuberDinner.Application.Services.Authentication;
+﻿using BuberDinner.Application.Common.Interface.Authentication;
+using BuberDinner.Application.Common.Interface.Service;
+using BuberDinner.Application.Services.Authentication;
+using BuberDinner.Infrastructure.Authentication;
+using BuberDinner.Infrastructure.Services;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BuberDinner.Infrastructure
 {
     public static class DependencyInyection
     {
-        public static IServiceCollection AddInfrastructure(this IServiceCollection services)
+        public static IServiceCollection AddInfrastructure(this IServiceCollection services, ConfigurationManager configuration)
         {
+            services.Configure<JwSetting>(configuration.GetSection(JwSetting.SecctionName));
             services.AddSingleton<IAuthenticationService, AuthenticationService>();
+            services.AddSingleton<IJwTokenGenerator, JwTokenGenerator>();
+            services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
             return services;
         }
     }

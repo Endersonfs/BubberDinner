@@ -35,7 +35,7 @@ public class AuthenticationController : ControllerBase
             request.Firstname,
             request.LastName,
             request.Email,
-             request.Password
+            request.Password
             );
 
         var response = new AuthenticationResponse

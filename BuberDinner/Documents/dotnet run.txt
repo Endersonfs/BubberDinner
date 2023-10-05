@@ -1,0 +1,8 @@
+--build Application
+dotnet build
+
+--Run Application
+dotnet run --project .\BuberDinner.Api\
+
+--User Secret
+UserSecretsId to '1869de8a-7368-4185-9812-cbf6087013bf' for MSBuild project 'C:\Users\EndersonFlorian\Documents\Enderson\Practicas\BubberDinner\BuberDinner\.\BuberDinner.Api\BuberDinner.Api.csproj'.
